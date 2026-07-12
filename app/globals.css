@@ -1,0 +1,49 @@
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0e2a33;
+  --deep: #12262c;
+  --teal: #0f6e56;
+  --tealDark: #0c5a47;
+  --tealSoft: #5dcaa5;
+  --mint: #e1f5ee;
+  --bg: #f6f8f7;
+  --card: #ffffff;
+  --border: #e2eae7;
+  --sub: #5f7470;
+  --faint: #9aaca7;
+  --amber: #854f0b;
+  --amberBg: #faeeda;
+  --amberBorder: #ef9f27;
+  --red: #a32d2d;
+  --redBg: #fcebeb;
+  --redBorder: #e24b4a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--deep);
+  font-family: "IBM Plex Sans Thai", "Noto Sans Thai", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select {
+  font-family: inherit;
+}
+
+/* progress-ring text sizing handled inline in the Ring component */
