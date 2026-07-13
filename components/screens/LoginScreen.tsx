@@ -9,13 +9,13 @@ interface LoginScreenProps {
 }
 
 export default function LoginScreen({ onLogin }: LoginScreenProps) {
-  const [email, setEmail] = useState("demo@policysense.app");
+  const [email, setEmail] = useState("demo@policylens.app");
   const [password, setPassword] = useState("demo1234");
 
   return (
     <div className="min-h-screen grid grid-cols-1 loginlg:grid-cols-2 bg-[var(--ink)]">
       <div className="hidden loginlg:flex flex-col justify-between p-14 text-[#E9F2EF]">
-        <div className="font-semibold">PolicySense</div>
+        <div className="font-semibold">PolicyLens</div>
         <div>
           <div className="text-[34px] font-semibold leading-[1.35]">
             หยุดรื้อเอกสาร
@@ -64,7 +64,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
             />
           </label>
           <button
-            onClick={() => onLogin(email || "demo@policysense.app")}
+            onClick={() => onLogin(email || "demo@policylens.app")}
             className="w-full py-3 rounded-xl bg-[var(--teal)] text-white font-medium text-[15px] hover:bg-[var(--tealDark)]"
           >
             เข้าสู่ระบบ

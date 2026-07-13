@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PolicySense — เข้าใจพอร์ตประกันใน 1 ขั้นตอน",
+  title: "PolicyLens — เข้าใจพอร์ตประกันใน 1 ขั้นตอน",
 };
 
 export default function RootLayout({

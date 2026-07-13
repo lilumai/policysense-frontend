@@ -28,7 +28,7 @@ export default function Nav({ screen, userEmail, canReview, canDashboard, onNavi
   return (
     <header className="sticky top-0 z-10 bg-[var(--card)] border-b border-[var(--border)]">
       <div className="max-w-[960px] mx-auto px-4 py-3 flex items-center justify-between gap-2">
-        <span className="font-semibold text-[var(--ink)]">PolicySense</span>
+        <span className="font-semibold text-[var(--ink)]">PolicyLens</span>
         <nav className="flex gap-1">
           {TABS.map((t) => {
             const enabled = enabledFor(t.key);
