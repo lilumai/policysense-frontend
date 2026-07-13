@@ -22,6 +22,7 @@ interface UploadScreenProps {
   files: FileEntry[];
   onFilesChange: (files: FileEntry[]) => void;
   onExtractedItemsAppend: (items: ExtractedItem[]) => void;
+  onExtractedItemsReset: () => void;
   analysisError: string | null;
   onProceed: () => void;
 }
@@ -32,6 +33,7 @@ export default function UploadScreen({
   files,
   onFilesChange,
   onExtractedItemsAppend,
+  onExtractedItemsReset,
   analysisError,
   onProceed,
 }: UploadScreenProps) {
@@ -43,18 +45,20 @@ export default function UploadScreen({
     onProfileChange({ ...profile, [key]: v === "" ? null : Number(v) } as Profile);
 
   const addFiles = async (fileList: File[]) => {
+    // Each upload action starts a fresh batch — replace, don't accumulate
+    // on top of whatever was extracted in a previous round.
     const newEntries: FileEntry[] = fileList.map((f) => ({
       id: Math.random().toString(36).slice(2),
       file: f,
       name: f.name,
       status: "pending",
     }));
-    const updated = [...files, ...newEntries];
-    onFilesChange(updated);
+    onFilesChange(newEntries);
+    onExtractedItemsReset();
 
     for (const entry of newEntries) {
       entry.status = "extracting";
-      onFilesChange([...updated]);
+      onFilesChange([...newEntries]);
       try {
         const data = await extractPolicy(entry.file);
         entry.status = "done";
@@ -77,7 +81,7 @@ export default function UploadScreen({
         entry.status = "error";
         entry.error = err instanceof Error ? err.message : String(err);
       }
-      onFilesChange([...updated]);
+      onFilesChange([...newEntries]);
     }
   };
 
@@ -228,6 +232,12 @@ export default function UploadScreen({
           onChange={(e) => e.target.files && addFiles(Array.from(e.target.files))}
         />
       </div>
+
+      {files.length > 0 && (
+        <p className="text-xs text-[var(--sub)] mt-2">
+          หมายเหตุ: การเลือกไฟล์ใหม่อีกครั้งจะแทนที่ไฟล์ชุดนี้ทั้งหมด ไม่ใช่เพิ่มเติม
+        </p>
+      )}
 
       <div>
         {files.map((f) => (

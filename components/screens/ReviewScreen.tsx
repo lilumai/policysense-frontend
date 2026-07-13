@@ -149,7 +149,7 @@ export default function ReviewScreen({ items, onItemsChange, onBack, onConfirm }
           onClick={onBack}
           className="px-4 py-2.5 rounded-xl border border-[var(--border)] text-[var(--sub)] text-sm bg-[var(--card)]"
         >
-          ← กลับไปอัปโหลดเพิ่ม
+          ← กลับไปหน้าอัปโหลด
         </button>
         <button
           onClick={onConfirm}

@@ -50,6 +50,20 @@ export default function App() {
     setScreen("upload");
   };
 
+  // Returning to Upload from a completed (or in-progress) analysis is treated
+  // as starting a new analysis — old files/items shouldn't linger into the
+  // next round. Upload <-> Review while still mid-flow is left untouched.
+  const handleNavigate = (target: Screen) => {
+    if (target === "upload" && (screen === "dashboard" || screen === "chat")) {
+      setFiles([]);
+      setExtractedItems([]);
+      setAnalysis(null);
+      setAnalysisError(null);
+      setChatMessages([]);
+    }
+    setScreen(target);
+  };
+
   const handleConfirmAndAnalyze = async () => {
     setAnalysisError(null);
     const policies: PolicyItem[] = extractedItems
@@ -84,7 +98,7 @@ export default function App() {
         userEmail={userEmail}
         canReview={extractedItems.length > 0}
         canDashboard={analyzed}
-        onNavigate={setScreen}
+        onNavigate={handleNavigate}
       />
 
       {screen === "upload" && (
@@ -94,6 +108,7 @@ export default function App() {
           files={files}
           onFilesChange={setFiles}
           onExtractedItemsAppend={(items) => setExtractedItems((prev) => [...prev, ...items])}
+          onExtractedItemsReset={() => setExtractedItems([])}
           analysisError={analysisError}
           onProceed={() => setScreen("review")}
         />
@@ -113,7 +128,7 @@ export default function App() {
           analysis={analysis}
           extractedItems={extractedItems}
           onDecision={(type) => setDecisions((prev) => [...prev, { id: Date.now(), type }])}
-          onNavigate={setScreen}
+          onNavigate={handleNavigate}
         />
       )}
 
