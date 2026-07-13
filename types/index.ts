@@ -109,4 +109,15 @@ export interface ChatMessage {
   content: string;
 }
 
+export interface ChatRequest {
+  question: string;
+  analysis: AnalysisResponse;
+  profile: Profile | null;
+  history: ChatMessage[];
+}
+
+export interface ChatResponse {
+  answer: string;
+}
+
 export type Screen = "login" | "upload" | "review" | "dashboard" | "chat";

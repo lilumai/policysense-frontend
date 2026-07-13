@@ -117,7 +117,12 @@ export default function App() {
       )}
 
       {screen === "chat" && (
-        <ChatScreen messages={chatMessages} onMessagesChange={setChatMessages} />
+        <ChatScreen
+          messages={chatMessages}
+          onMessagesChange={setChatMessages}
+          analysis={analysis}
+          profile={profile}
+        />
       )}
     </div>
   );

@@ -11,6 +11,9 @@ import type {
   PolicyItem,
   AnalyzeApiResponse,
   ExtractApiResponse,
+  AnalysisResponse,
+  ChatMessage,
+  ChatResponse,
 } from "@/types";
 
 // Empty string = same-origin (works if reverse-proxied under one domain).
@@ -64,6 +67,27 @@ export async function analyzePortfolio(
     );
   }
   return parseJsonOrThrow<AnalyzeApiResponse>(res);
+}
+
+export async function chatWithAI(
+  question: string,
+  analysis: AnalysisResponse,
+  profile: Profile | null,
+  history: ChatMessage[]
+): Promise<ChatResponse> {
+  let res: Response;
+  try {
+    res = await fetch(`${API_BASE_URL}/chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question, analysis, profile, history }),
+    });
+  } catch {
+    throw new Error(
+      `เชื่อมต่อ ${API_BASE_URL || "backend"} ไม่ได้ (network error) — เช็คว่า FastAPI รันอยู่หรือยัง`
+    );
+  }
+  return parseJsonOrThrow<ChatResponse>(res);
 }
 
 export async function checkHealth(): Promise<{ status: string; llm_configured: boolean }> {
