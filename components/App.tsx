@@ -60,6 +60,7 @@ export default function App() {
         category: i.category,
         sum_insured: i.sum_insured as number,
         annual_premium: i.annual_premium || 0,
+        policy_group_id: i.policy_group_id,
       }));
 
     try {

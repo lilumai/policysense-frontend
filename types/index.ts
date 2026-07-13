@@ -34,6 +34,7 @@ export interface PolicyItem {
   category: Category;
   sum_insured: number;
   annual_premium: number;
+  policy_group_id?: string;
 }
 
 export interface ExtractedItem {
@@ -45,6 +46,7 @@ export interface ExtractedItem {
   confidence: "high" | "low";
   include: boolean;
   sourceFile: string;
+  policy_group_id?: string;
 }
 
 export interface FileEntry {
@@ -94,6 +96,7 @@ export interface ExtractApiResponseItem {
   annual_premium: number | null;
   raw_text?: string | null;
   confidence: "high" | "low";
+  policy_group_id?: string | null;
 }
 
 export interface ExtractApiResponse {

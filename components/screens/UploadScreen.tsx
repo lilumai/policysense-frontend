@@ -69,6 +69,7 @@ export default function UploadScreen({
           confidence: item.confidence || "low",
           include: item.sum_insured != null,
           sourceFile: entry.name,
+          policy_group_id: item.policy_group_id ?? undefined,
         }));
         onExtractedItemsAppend(items);
         if (data.warning) entry.error = data.warning;
