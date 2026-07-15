@@ -25,6 +25,8 @@ interface UploadScreenProps {
   onExtractedItemsReset: () => void;
   analysisError: string | null;
   onProceed: () => void;
+  consentGiven: boolean;
+  onRequestConsent: () => void;
 }
 
 export default function UploadScreen({
@@ -36,6 +38,8 @@ export default function UploadScreen({
   onExtractedItemsReset,
   analysisError,
   onProceed,
+  consentGiven,
+  onRequestConsent,
 }: UploadScreenProps) {
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [dragOver, setDragOver] = useState(false);
@@ -208,27 +212,38 @@ export default function UploadScreen({
       </div>
 
       <div
-        onClick={() => inputRef.current?.click()}
-        onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+        onClick={() => (consentGiven ? inputRef.current?.click() : onRequestConsent())}
+        onDragOver={(e) => { e.preventDefault(); if (consentGiven) setDragOver(true); }}
         onDragLeave={() => setDragOver(false)}
         onDrop={(e) => {
           e.preventDefault();
           setDragOver(false);
+          if (!consentGiven) { onRequestConsent(); return; }
           addFiles(Array.from(e.dataTransfer.files));
         }}
         className={
           "mt-5 border-2 border-dashed rounded-2xl p-10 text-center cursor-pointer bg-[var(--card)] " +
-          (dragOver ? "border-[var(--teal)] bg-[var(--mint)]" : "border-[var(--border)] hover:border-[var(--teal)]")
+          (!consentGiven
+            ? "border-[var(--border)] opacity-50 cursor-not-allowed"
+            : dragOver
+            ? "border-[var(--teal)] bg-[var(--mint)]"
+            : "border-[var(--border)] hover:border-[var(--teal)]")
         }
       >
         <p className="font-medium">ลากไฟล์มาวาง หรือคลิกเพื่อเลือก</p>
         <p className="text-[var(--sub)] text-sm mt-1">PDF, JPG, PNG · หลายไฟล์พร้อมกัน</p>
+        {!consentGiven && (
+          <p className="text-[var(--teal)] text-xs mt-2 underline">
+            ต้องยอมรับข้อตกลงการใช้ข้อมูลก่อนอัปโหลด — คลิกเพื่ออ่านและยอมรับ
+          </p>
+        )}
         <input
           ref={inputRef}
           type="file"
           multiple
           accept="application/pdf,image/png,image/jpeg"
           className="hidden"
+          disabled={!consentGiven}
           onChange={(e) => e.target.files && addFiles(Array.from(e.target.files))}
         />
       </div>

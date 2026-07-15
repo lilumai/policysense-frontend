@@ -13,6 +13,7 @@ import type {
 } from "@/types";
 import { analyzePortfolio } from "@/lib/api-client";
 import Nav from "@/components/ui/Nav";
+import ConsentModal from "@/components/ui/ConsentModal";
 import LoginScreen from "@/components/screens/LoginScreen";
 import UploadScreen from "@/components/screens/UploadScreen";
 import ReviewScreen from "@/components/screens/ReviewScreen";
@@ -42,6 +43,8 @@ export default function App() {
   const [analysisError, setAnalysisError] = useState<string | null>(null);
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [, setDecisions] = useState<{ id: number; type: "claim" | "buy_more" }[]>([]);
+  const [consentGiven, setConsentGiven] = useState(false);
+  const [showConsentModal, setShowConsentModal] = useState(false);
 
   const analyzed = analysis !== null;
 
@@ -111,6 +114,18 @@ export default function App() {
           onExtractedItemsReset={() => setExtractedItems([])}
           analysisError={analysisError}
           onProceed={() => setScreen("review")}
+          consentGiven={consentGiven}
+          onRequestConsent={() => setShowConsentModal(true)}
+        />
+      )}
+
+      {showConsentModal && (
+        <ConsentModal
+          onAccept={() => {
+            setConsentGiven(true);
+            setShowConsentModal(false);
+          }}
+          onCancel={() => setShowConsentModal(false)}
         />
       )}
 
