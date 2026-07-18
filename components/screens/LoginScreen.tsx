@@ -14,9 +14,9 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
 
   return (
     <div className="min-h-screen grid grid-cols-1 loginlg:grid-cols-2 bg-[var(--ink)]">
-      <div className="hidden loginlg:flex flex-col justify-between p-14 text-[#E9E3F7]">
+      <div className="hidden loginlg:flex flex-col p-14 text-[#E9E3F7]">
         <div className="font-semibold">PolicyLens</div>
-        <div>
+        <div className="flex-1 flex flex-col justify-center">
           <div className="text-[34px] font-semibold leading-[1.35]">
             PolicyLens
             <br />
