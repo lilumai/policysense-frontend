@@ -4,17 +4,18 @@
 @tailwind utilities;
 
 :root {
-  --ink: #0e2a33;
-  --deep: #12262c;
-  --teal: #0f6e56;
-  --tealDark: #0c5a47;
-  --tealSoft: #5dcaa5;
-  --mint: #e1f5ee;
-  --bg: #f6f8f7;
+  --ink: #3b2e5e;
+  --deep: #3b2e5e;
+  --teal: #6c4bb6;
+  --tealDark: #5c409b;
+  --tealSoft: #6c4bb6;
+  --mint: #e9e3f7;
+  --bg: #f5f1fb;
   --card: #ffffff;
-  --border: #e2eae7;
-  --sub: #5f7470;
-  --faint: #9aaca7;
+  --border: #e9e3f7;
+  --sub: #4a4458;
+  --faint: #867c8f;
+  --ok: #4f8f8a;
   --amber: #854f0b;
   --amberBg: #faeeda;
   --amberBorder: #ef9f27;

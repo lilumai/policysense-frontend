@@ -20,4 +20,4 @@ export default function Field({ label, children, className }: FieldProps) {
 
 export const fieldInputClass =
   "w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card)] text-[15px] " +
-  "focus:outline-none focus:border-[var(--teal)] focus:ring-[3px] focus:ring-[rgba(15,110,86,0.15)]";
+  "focus:outline-none focus:border-[var(--teal)] focus:ring-[3px] focus:ring-[rgba(108,75,182,0.15)]";

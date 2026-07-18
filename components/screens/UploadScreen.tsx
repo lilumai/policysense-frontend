@@ -101,7 +101,7 @@ export default function UploadScreen({
   const statusColor: Record<FileEntry["status"], string> = {
     pending: "var(--sub)",
     extracting: "var(--amber)",
-    done: "var(--teal)",
+    done: "var(--ok)",
     error: "var(--red)",
   };
 

@@ -10,7 +10,7 @@ export default function Ring({ pct }: RingProps) {
   const stroke = 9;
   const r = (size - stroke) / 2;
   const circ = 2 * Math.PI * r;
-  const color = pct === 0 ? "#D9E2DF" : pct >= 80 ? "var(--teal)" : "#EF9F27";
+  const color = pct === 0 ? "#D9E2DF" : pct >= 80 ? "var(--ok)" : "#EF9F27";
 
   return (
     <svg width={size} height={size}>
@@ -19,7 +19,7 @@ export default function Ring({ pct }: RingProps) {
         cy={size / 2}
         r={r}
         fill="none"
-        stroke="#E7EEEB"
+        stroke="#E9E3F7"
         strokeWidth={stroke}
       />
       <circle

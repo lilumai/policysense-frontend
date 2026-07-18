@@ -21,8 +21,8 @@ const CATEGORY_META: Record<
 const STATUS_META = {
   gap: { bg: "var(--redBg)", color: "var(--red)", label: "ยังขาด" },
   overlap: { bg: "var(--amberBg)", color: "var(--amber)", label: "ซ้ำซ้อน" },
-  ok: { bg: "var(--mint)", color: "var(--teal)", label: "ครบแล้ว" },
-  goal: { bg: "var(--mint)", color: "var(--teal)", label: "เป้าหมาย" },
+  ok: { bg: "var(--mint)", color: "var(--ok)", label: "ครบแล้ว" },
+  goal: { bg: "var(--mint)", color: "var(--ok)", label: "เป้าหมาย" },
 } as const;
 
 const fmtMoney = (n: number | null | undefined) =>

@@ -35,7 +35,7 @@ export default function DashboardScreen({ analysis, extractedItems, onDecision, 
       ? "var(--red)"
       : affordability.status === "watch"
       ? "var(--amber)"
-      : "var(--teal)";
+      : "var(--ok)";
   const affordBorder =
     affordability.status === "over_budget"
       ? "var(--redBorder)"
@@ -82,7 +82,7 @@ export default function DashboardScreen({ analysis, extractedItems, onDecision, 
         เพื่อรู้ว่าตัวเลขอ้างอิงจากที่ใด · แตะการ์ดเพื่อดูที่มา
       </p>
 
-      <div className="rounded-2xl p-5 mt-6 bg-[var(--ink)] text-[#E9F2EF]">
+      <div className="rounded-2xl p-5 mt-6 bg-[var(--ink)] text-[#E9E3F7]">
         <p className="font-semibold m-0">พร้อมตัดสินใจแล้ว?</p>
         <div className="flex flex-wrap gap-2 mt-4">
           <button
@@ -99,7 +99,7 @@ export default function DashboardScreen({ analysis, extractedItems, onDecision, 
           </button>
           <button
             onClick={() => onNavigate("chat")}
-            className="px-3.5 py-2 rounded-xl text-[13px] font-medium border border-[#2E4A46] text-[#E9F2EF] bg-transparent"
+            className="px-3.5 py-2 rounded-xl text-[13px] font-medium border border-[#55447A] text-[#E9E3F7] bg-transparent"
           >
             💬 ถามผู้ช่วย AI ก่อน
           </button>

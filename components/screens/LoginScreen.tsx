@@ -14,7 +14,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
 
   return (
     <div className="min-h-screen grid grid-cols-1 loginlg:grid-cols-2 bg-[var(--ink)]">
-      <div className="hidden loginlg:flex flex-col justify-between p-14 text-[#E9F2EF]">
+      <div className="hidden loginlg:flex flex-col justify-between p-14 text-[#E9E3F7]">
         <div className="font-semibold">PolicyLens</div>
         <div>
           <div className="text-[34px] font-semibold leading-[1.35]">
@@ -22,7 +22,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
             <br />
             เห็นความคุ้มครองที่คุณมี ก่อนวันที่ต้องใช้มัน
           </div>
-          <p className="mt-5 max-w-[26rem] text-[#9FBDB4] leading-[1.7]">
+          <p className="mt-5 max-w-[26rem] text-[#B6ACC9] leading-[1.7]">
             อัปโหลดกรมธรรม์ทุกฉบับ (PDF หรือรูปสกรีนช็อตจากแอปก็ได้) — AI สรุปพอร์ต
             บอกว่าอะไรซ้ำ อะไรขาด
           </p>
@@ -30,14 +30,14 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
             {["Fewer steps", "Owner flips", "Outcome feeds back"].map((p) => (
               <span
                 key={p}
-                className="text-xs px-2.5 py-1 rounded-full border border-[#2E4A46] text-[#6E8B84] inline-block"
+                className="text-xs px-2.5 py-1 rounded-full border border-[#55447A] text-[#9084A8] inline-block"
               >
                 {p}
               </span>
             ))}
           </div>
         </div>
-        <p className="text-xs text-[#6E8B84]">เป็นกลาง ไม่ขายประกัน ไม่มีค่าคอมมิชชั่น</p>
+        <p className="text-xs text-[#9084A8]">ไม่ขายประกัน ไม่มีค่าคอมมิชชั่น</p>
       </div>
 
       <div className="flex items-center justify-center bg-[var(--bg)] p-6 loginlg:rounded-l-[40px]">
