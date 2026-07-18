@@ -37,7 +37,6 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
             ))}
           </div>
         </div>
-        <p className="text-xs text-[#9084A8]">ไม่ขายประกัน ไม่มีค่าคอมมิชชั่น</p>
       </div>
 
       <div className="flex items-center justify-center bg-[var(--bg)] p-6 loginlg:rounded-l-[40px]">
