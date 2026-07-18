@@ -18,9 +18,9 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
         <div className="font-semibold">PolicyLens</div>
         <div>
           <div className="text-[34px] font-semibold leading-[1.35]">
-            หยุดรื้อเอกสาร
+            PolicyLens
             <br />
-            แล้วมา<span className="text-[var(--tealSoft)]">ตัดสินใจ</span>แทน
+            เห็นความคุ้มครองที่คุณมี ก่อนวันที่ต้องใช้มัน
           </div>
           <p className="mt-5 max-w-[26rem] text-[#9FBDB4] leading-[1.7]">
             อัปโหลดกรมธรรม์ทุกฉบับ (PDF หรือรูปสกรีนช็อตจากแอปก็ได้) — AI สรุปพอร์ต
